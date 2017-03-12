@@ -1,9 +1,9 @@
-name       : wine
-version    : '2.3'
+name       : wine-staging
+version    : 2.3
 release    : 1
 source     :
-    - file:///home/andrex/tmp/wine-2.tar.xz : 019aaad609992185bd972080e6c27f8549c247226e2785866ab501e9df10d406
-license    : LGPL-2.1
+    - https://github.com/andrex4k/solus/raw/master/wine-2/files/wine-staging-2.3.tar.xz : 9c70cf5ff1122b60655d4a4a8322db3c57781d2bdd64aa9e778fddc8fe7a4d28
+license    : LGPL-2.1 # CHECK ME
 component  : virt
 summary    : Wine compatibility layer for Windows emulation.
 description: |
