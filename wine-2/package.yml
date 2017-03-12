@@ -1,0 +1,71 @@
+name       : wine
+version    : '2.3'
+release    : 1
+source     :
+    - file:///home/andrex/tmp/wine-2.tar.xz : 019aaad609992185bd972080e6c27f8549c247226e2785866ab501e9df10d406
+license    : LGPL-2.1
+component  : virt
+summary    : Wine compatibility layer for Windows emulation.
+description: |
+    Wine (originally an acronym for "Wine Is Not an Emulator") is a compatibility layer capable of running Windows applications on several POSIX-compliant operating systems, such as Linux, Mac OSX, & BSD. Instead of simulating internal Windows logic like a virtual machine or emulator, Wine translates Windows API calls into POSIX calls on-the-fly, eliminating the performance and memory penalties of other methods and allowing you to cleanly integrate Windows applications into your desktop.
+builddeps  :
+    - pkgconfig32(dbus-1)
+    - pkgconfig32(fontconfig)
+    - pkgconfig32(freetype2)
+    - pkgconfig32(glu)
+    - pkgconfig32(gnutls)
+    - pkgconfig32(gtk+-2.0)
+    - pkgconfig32(gtk+-3.0)
+    - pkgconfig32(ice)
+    - pkgconfig32(lcms2)
+    - pkgconfig32(libgphoto2)
+    - pkgconfig32(libmpg123)
+    - pkgconfig32(libpng)
+    - pkgconfig32(libtiff-4)
+    - pkgconfig32(libpulse)
+    - pkgconfig32(libv4l1)
+    - pkgconfig32(libxslt)
+    - pkgconfig32(ocl-icd)
+    - pkgconfig32(openal)
+    - pkgconfig32(x11)
+    - pkgconfig32(xcursor)
+    - pkgconfig32(xi)
+    - pkgconfig32(xinerama)
+    - pkgconfig32(xrandr)
+    - pkgconfig32(xshmfence)
+    - pkgconfig32(xxf86vm)
+    - pkgconfig32(zlib)
+    - cups-32bit-devel
+    - glibc-32bit-devel
+    - libgcc-32bit
+    - libjpeg-turbo-32bit-devel
+    - libpth-32bit-devel
+    - ncurses-32bit-devel
+    - openldap-32bit-devel
+    - unixodbc-32bit-devel
+patterns   :
+    - 32bit :
+        - /usr/bin/wine
+rundeps    :
+    - 32bit :
+        - freetype2-32bit
+        - ncurses-32bit
+setup      : |
+    # Get 64-bit done first.
+    mkdir wine64 && pushd wine64
+    ../configure %CONFOPTS% --enable-win64
+    %make
+    popd
+build      : |
+    # 32-bit now
+    mkdir wine32 && pushd wine32
+    PKG_CONFIG_PATH=/usr/lib32/pkgconfig:/usr/share/pkgconfig:/usr/lib64/pkgconfig ../configure %CONFOPTS% --with-wine64=../wine64 --libdir=/usr/lib32
+    %make
+install    : |
+    pushd wine32
+    %make_install
+    popd
+
+    pushd wine64
+    %make_install
+    popd

@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://evolve-os.com/standard/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>wine</Name>
+        <Homepage></Homepage>
+        <Packager>
+            <Name>Antonov Andrey Gennad'yevich</Name>
+            <Email>andrex4k@gmail.com</Email>
+        </Packager>
+        <Summary>Add summary</Summary>
+        <Description>Add description</Description>
+        <License>GPLv2+</License>
+        <Archive sha1sum="ca6a99f894bf8ba1990949c9afcecdd88cfe8736" type="tarxz">http://dl.winehq.org/wine/source/2.x/wine-2.3.tar.xz</Archive>
+
+        <BuildDependencies>
+
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>wine</Name>
+        <Files>
+            <Path fileType="*">/</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>03-11-2017</Date>
+            <Version>2.3</Version>
+            <Comment>Add wine to repositories</Comment>
+            <Name>Antonov Andrey Gennad'yevich</Name>
+            <Email>andrex4k@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
