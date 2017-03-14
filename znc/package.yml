@@ -1,0 +1,21 @@
+name       : znc
+version    : 1.6.5
+release    : 1
+source     :
+    - http://znc.in/nightly/znc-latest.tar.gz : a3403c1a779ce7be6e7a446cab30a3e5e649fd2c9fb3939287623c920f0384bc
+license    : ASL-2.0 # CHECK ME
+component  : network.irc
+summary    : ZNC - An advanced IRC bouncer
+description: |
+    ZNC is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels. Multiple clients from different locations can connect to a single ZNC account simultaneously and therefore appear under the same nickname on IRC. It supports SSL secured connections and IPv6.
+builddeps  :
+    - pkgconfig(openssl)
+    - pkgconfig(icu-uc)
+    - pkgconfig(Qt5Network)
+    - pkgconfig(python)
+setup      : |
+    %cmake .
+build      : |
+    %make
+install    : |
+    %make_install

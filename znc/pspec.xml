@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://evolve-os.com/standard/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>znc</Name>
+        <Homepage></Homepage>
+        <Packager>
+            <Name>Antonov Andrey Gennad'yevich</Name>
+            <Email>andrex4k@gmail.com</Email>
+        </Packager>
+        <Summary>Add summary</Summary>
+        <Description>Add description</Description>
+        <License>GPLv2+</License>
+        <Archive sha1sum="0465e766086f4cc8717f848f8af8e40ae9c88d0b" type="targz">http://znc.in/nightly/znc-latest.tar.gz</Archive>
+
+        <BuildDependencies>
+            <Dependency type="pkgconfig">openssl</Dependency>
+            <Dependency type="pkgconfig">icu-uc</Dependency>
+            <Dependency type="pkgconfig" versionFrom="5.4">Qt5Network</Dependency>
+            <Dependency type="pkgconfig" versionFrom="3.0">$PYTHON</Dependency>
+
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>znc</Name>
+        <Files>
+            <Path fileType="*">/</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>03-14-2017</Date>
+            <Version>latest</Version>
+            <Comment>Add znc to repositories</Comment>
+            <Name>Antonov Andrey Gennad'yevich</Name>
+            <Email>andrex4k@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
