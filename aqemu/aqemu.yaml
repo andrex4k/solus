@@ -1,0 +1,25 @@
+name       : aqemu
+version    : 0.9.2
+release    : 1
+source     :
+    - https://netcologne.dl.sourceforge.net/project/aqemu/aqemu/0.9.2/aqemu-0.9.2.tar.gz : e3d54de00ebdce3754f97f7e0e7cce8cebb588e8ce6bc249401cc909281b08de
+license    : GPL-2.0-or-later
+summary    : GUI for virtual machines using QEMU as the backend
+component  : system.devel
+description: |
+    AQEMU is a GUI for virtual machines using QEMU as the backend. Support for the KVM accelerator on Linux is provided. The application has a user-friendly interface and allows to set a large number of options.
+builddeps  :
+  - libvncserver-devel
+  - qt5-base-devel
+  - qt5-tools-devel
+  - zlib-devel
+  - cmake
+  - gcc
+  - g++
+  - libglu-devel
+setup      : |
+    %cmake 
+build      : |
+    %make
+install    : |
+    %make_install
